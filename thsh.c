@@ -1,13 +1,15 @@
 /*
- * This file is the main entry point for the thsh shell.
+ * This file is the main entry point for the ceashell.
  * It is responsible for reading input, parsing it, and
  * executing commands.
  */
 
-#include "src/history.h"
-#include "src/input_handler.h"
-#include "src/raw_mode.h"
 #include "thsh.h"
+#include "src/utils/trie.h"
+#include "src/utils/path_manager.h"
+#include "src/builtin.h"
+#include "src/history.h"
+#include "src/raw_mode.h"
 
 #include <fcntl.h>
 #include <stdlib.h>

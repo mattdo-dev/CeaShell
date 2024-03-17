@@ -2,7 +2,7 @@
  * This file handles raw input modes to handle tab, up, down, etc.
  */
 
-#include "util/trie.h"
+#include "utils/trie.h"
 #include <stdlib.h>
 #include <termios.h>
 #include <unistd.h>

@@ -5,7 +5,7 @@
 #ifndef INPUT_HANDLER_H
 #define INPUT_HANDLER_H
 
-#include "util/trie.h"
+#include "utils/trie.h"
 
 /*
  * Initializes the input handler.

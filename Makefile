@@ -1,8 +1,10 @@
-## Do not change this file
 TARGETS=thsh
 
-# Find all .c files in the current directory and src directory
-SRC=$(wildcard *.c) $(wildcard src/*.c) $(wildcard src/util/*.c)
+# Main build directories
+SRC=$(wildcard *.c) \
+    $(wildcard src/*.c) \
+    $(wildcard src/builtins/*.c) \
+    $(wildcard src/utils/*.c)
 
 # Replace the .c extension with .o to get the list of object files
 OBJECTS=$(SRC:.c=.o)

@@ -26,12 +26,6 @@ int parse_line (char *inbuf, size_t length, char *commands [MAX_PIPELINE][MAX_AR
 		char **infile, char **outfile,
 		char *scratch, size_t scratch_len);
 
-// In builtin.c:
-int init_cwd(void);
-int handle_builtin(char *args[MAX_ARGS], int stdin, int stdout, int *retval);
-int print_prompt(void);
-char** get_builtin_names(void);
-
 // In jobs.c:
 int init_path(void);
 char** get_path_table();
