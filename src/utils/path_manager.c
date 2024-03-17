@@ -17,22 +17,22 @@ int init_cwd(void) {
     return 0;
 }
 
-char* get_current_path(void) {
+char *get_current_path(void) {
     return cur_path;
 }
 
-char* get_old_path(void) {
+char *get_old_path(void) {
     return old_path;
 }
 
-void set_current_path(const char* path) {
+void set_current_path(const char *path) {
     if (path != NULL) {
         strncpy(cur_path, path, MAX_INPUT);
         cur_path[MAX_INPUT - 1] = '\0';  // Ensure null termination
     }
 }
 
-void set_old_path(const char* path) {
+void set_old_path(const char *path) {
     if (path != NULL) {
         strncpy(old_path, path, MAX_INPUT);
         old_path[MAX_INPUT - 1] = '\0';  // Ensure null termination

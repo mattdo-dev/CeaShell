@@ -15,15 +15,15 @@
 int init_cwd(void);
 
 // Get the current working directory.
-char* get_current_path(void);
+char *get_current_path(void);
 
 // Get the previous working directory.
-char* get_old_path(void);
+char *get_old_path(void);
 
 // Set the current working directory.
-void set_current_path(const char* path);
+void set_current_path(const char *path);
 
 // Set the previous working directory.
-void set_old_path(const char* path);
+void set_old_path(const char *path);
 
 #endif //PATH_MANAGER_H

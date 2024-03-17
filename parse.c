@@ -323,7 +323,7 @@ int parse_line(char *inbuf, size_t length,
 
                 // skip the redirection character and any following whitespace
                 current = next_delim + 1;
-                while (current < end && isspace((unsigned char)*current)) {
+                while (current < end && isspace((unsigned char) *current)) {
                     current++;
                 }
 

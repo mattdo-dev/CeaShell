@@ -10,12 +10,12 @@
 /*
  * Initializes the input handler.
  */
-void init_input_handler(Trie* root);
+void init_input_handler(Trie *root);
 
 /*
  * Reads a line of input from the terminal.
  */
-int read_input_line(int input_fd, char *cmd, int *history_idx, Trie* root);
+int read_input_line(int input_fd, char *cmd, int *history_idx, Trie *root);
 
 /*
  * Cleans up the input handler.

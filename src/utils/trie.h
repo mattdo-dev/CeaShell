@@ -32,7 +32,7 @@ typedef struct Trie {
  *
  * @return A pointer to the newly created Trie node.
  */
-Trie* get_node(void);
+Trie *get_node(void);
 
 /**
  * Inserts a key into the trie.
@@ -51,7 +51,7 @@ void insert(Trie *root, const char *key);
  * @param root A pointer to a Trie node.
  * @return `true` if the node has no children, `false` otherwise.
  */
-bool is_child_node(Trie* root);
+bool is_child_node(Trie *root);
 
 /**
  * Recursively generates suggestions for the current prefix.
@@ -63,7 +63,7 @@ bool is_child_node(Trie* root);
  * @param suggestions Array of strings to store the suggestions.
  * @param count Pointer to an integer tracking the number of suggestions.
  */
-void recommend_suggestion(Trie* root, char* curr_prefix, char** suggestions, int* count);
+void recommend_suggestion(Trie *root, char *curr_prefix, char **suggestions, int *count);
 
 /**
  * Finds suggestions based on a given query string.
@@ -75,7 +75,7 @@ void recommend_suggestion(Trie* root, char* curr_prefix, char** suggestions, int
  * @param count Pointer to an integer to store the number of suggestions.
  * @return An array of string suggestions.
  */
-char** find_suggestion(Trie* root, const char* query, int* count);
+char **find_suggestion(Trie *root, const char *query, int *count);
 
 
 /**
@@ -85,6 +85,6 @@ char** find_suggestion(Trie* root, const char* query, int* count);
  * @param root A pointer to the root of the Trie.
  * @param paths Array of strings representing directory paths.
  */
-void populate_trie(Trie* root, char** paths);
+void populate_trie(Trie *root, char **paths);
 
 #endif //TRIE_H

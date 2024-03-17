@@ -80,13 +80,13 @@ int main(int argc, char **argv, char **envp) {
         int history_idx = get_history_length();
 
         if (!input_fd) {
-          ret = print_prompt();
-          if (ret <= 0) {
-            // if we printed 0 bytes, this call failed and the program
-            // should end -- this will likely never occur.
-            finished = true;
-            break;
-          }
+            ret = print_prompt();
+            if (ret <= 0) {
+                // if we printed 0 bytes, this call failed and the program
+                // should end -- this will likely never occur.
+                finished = true;
+                break;
+            }
         }
 
         // Reset memory from the last iteration
@@ -168,7 +168,7 @@ int main(int argc, char **argv, char **envp) {
 
                 int num_suggestions = 0;
                 int suggestion_len;
-                char** suggestions = find_suggestion(root, cmd, &num_suggestions);
+                char **suggestions = find_suggestion(root, cmd, &num_suggestions);
 
                 /* If there is only one suggestion, auto-complete the command.
                  * If there are multiple suggestions, print them all out after
@@ -330,11 +330,11 @@ int main(int argc, char **argv, char **envp) {
 
                     // Calculate elapsed time, then print it
                     long real_time = (end_time.tv_sec - start_time.tv_sec) * 1000 +
-                            (end_time.tv_usec - start_time.tv_usec) / 1000;
+                                     (end_time.tv_usec - start_time.tv_usec) / 1000;
                     long user_time = (usage_end.ru_utime.tv_sec - usage_start.ru_utime.tv_sec) * 1000 +
-                            (usage_end.ru_utime.tv_usec - usage_start.ru_utime.tv_usec) / 1000;
+                                     (usage_end.ru_utime.tv_usec - usage_start.ru_utime.tv_usec) / 1000;
                     long sys_time = (usage_end.ru_stime.tv_sec - usage_start.ru_stime.tv_sec) * 1000 +
-                            (usage_end.ru_stime.tv_usec - usage_start.ru_stime.tv_usec) / 1000;
+                                    (usage_end.ru_stime.tv_usec - usage_start.ru_stime.tv_usec) / 1000;
 
                     printf("TIMES: real=%.1fs user=%.1fs sys=%.1fs\n",
                            real_time / 1000.0, user_time / 1000.0, sys_time / 1000.0);

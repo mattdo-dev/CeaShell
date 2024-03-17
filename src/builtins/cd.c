@@ -9,8 +9,8 @@
 /* Handle a cd command. */
 int handle_cd(char *args[MAX_ARG_SIZE], int stdin, int stdout) {
     int rv = 0;
-    char* old_path = get_old_path();
-    char* cur_path = get_current_path();
+    char *old_path = get_old_path();
+    char *cur_path = get_current_path();
 
     if (!args[1]) {
         const char *home = getenv("HOME");

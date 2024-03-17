@@ -82,7 +82,7 @@ int init_path(void) {
  * Return the path table
  * Returns a NULL-terminated array of strings.
  */
-char** get_path_table() {
+char **get_path_table() {
     return path_table;
 }
 

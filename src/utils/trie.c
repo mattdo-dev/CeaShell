@@ -4,8 +4,8 @@
 
 #include "trie.h"
 
-Trie* get_node(void) {
-    Trie *p_node = (Trie*) malloc(sizeof(Trie));
+Trie *get_node(void) {
+    Trie *p_node = (Trie *) malloc(sizeof(Trie));
     p_node->end = false;
     for (int i = 0; i < ALPHABET_SIZE; i++) {
         p_node->children[i] = NULL;
@@ -25,7 +25,7 @@ void insert(Trie *root, const char *key) {
     p_crawl->end = true;
 }
 
-bool is_child_node(Trie* root) {
+bool is_child_node(Trie *root) {
     for (int i = 0; i < ALPHABET_SIZE; i++) {
         if (root->children[i]) {
             return false;
@@ -34,7 +34,7 @@ bool is_child_node(Trie* root) {
     return true;
 }
 
-void recommend_suggestion(Trie* root, char* curr_prefix, char** suggestions, int* count) {
+void recommend_suggestion(Trie *root, char *curr_prefix, char **suggestions, int *count) {
     if (root->end) {
         suggestions[*count] = strdup(curr_prefix);
         (*count)++;
@@ -53,8 +53,8 @@ void recommend_suggestion(Trie* root, char* curr_prefix, char** suggestions, int
     }
 }
 
-char** find_suggestion(Trie* root, const char* query, int* count) {
-    Trie* p_crawl = root;
+char **find_suggestion(Trie *root, const char *query, int *count) {
+    Trie *p_crawl = root;
     *count = 0;
 
     for (int level = 0; level < strlen(query); level++) {
@@ -66,16 +66,16 @@ char** find_suggestion(Trie* root, const char* query, int* count) {
     }
 
     bool is_word = (p_crawl->end && is_child_node(p_crawl));
-    char** suggestions = (char**)malloc(100 * sizeof(char*));
+    char **suggestions = (char **) malloc(100 * sizeof(char *));
 
     if (!is_word) {
-        recommend_suggestion(p_crawl, (char*) query, suggestions, count);
+        recommend_suggestion(p_crawl, (char *) query, suggestions, count);
     }
 
     return suggestions;
 }
 
-void populate_trie(Trie* root, char** paths) {
+void populate_trie(Trie *root, char **paths) {
     DIR *dir;
     struct dirent *ent;
 
