@@ -40,14 +40,4 @@ int create_job(void);
 int run_command(char *args[MAX_ARGS], int stdin, int stdout, int job_id);
 int wait_on_job(int job_id, int *exit_code);
 
-// In history.c (optional - challenge only)
-void add_history_line(char *line);
-void clear_history(void);
-void print_history(int stdout);
-int save_history(void);
-int load_history(void);
-char* get_prev_history_command(int *current_index);
-char* get_next_history_command(int *current_index);
-int get_history_length(void);
-
 #endif // THSH_H

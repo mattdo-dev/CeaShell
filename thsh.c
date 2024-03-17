@@ -4,6 +4,7 @@
  * executing commands.
  */
 
+#include "src/history.h"
 #include "src/input_handler.h"
 #include "src/raw_mode.h"
 #include "thsh.h"
@@ -59,8 +60,8 @@ int main(int argc, char **argv, char **envp) {
     }
 
     char **paths = get_path_table();
-    populate_trie(root, paths);
     char **builtins = get_builtin_names();
+    populate_trie(root, paths);
     populate_trie(root, builtins);
 
     enable_raw_mode();

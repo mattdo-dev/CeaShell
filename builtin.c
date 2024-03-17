@@ -1,8 +1,8 @@
-/* 730406661
- *
- * This file implements a few built-in commands, such as cd and exit, and
- * our custom goheels command.
+/*
+ * This file implements a few built-in commands.
  */
+
+#include "src/history.h"
 #include "thsh.h"
 #include <stdlib.h>
 

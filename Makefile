@@ -1,8 +1,11 @@
 ## Do not change this file
 TARGETS=thsh
 
-HEADERS=thsh.h utils.h src/input_handler.h src/raw_mode.h src/util/trie.h
-OBJECTS=parse.o builtin.o jobs.o history.o src/input_handler.o src/raw_mode.o src/util/trie.o
+# Find all .c files in the current directory and src directory
+SRC=$(wildcard *.c) $(wildcard src/*.c) $(wildcard src/util/*.c)
+
+# Replace the .c extension with .o to get the list of object files
+OBJECTS=$(SRC:.c=.o)
 
 CFLAGS= -Wall -Werror -g
 
@@ -10,14 +13,12 @@ CFLAGS= -Wall -Werror -g
 
 all: $(TARGETS)
 
-%.o: %.c $(HEADERS)
-	gcc $(CFLAGS) -c -o $@ $<
+# Rule to compile .c to .o; handles dependencies automatically
+%.o: %.c
+	gcc $(CFLAGS) -c $< -o $@
 
-src/%.o: src/%.c $(HEADERS)
-	gcc $(CFLAGS) -c -o $@ $<
-
-thsh: thsh.c $(OBJECTS)
-	gcc $(CFLAGS) thsh.c $(OBJECTS) -o thsh
+thsh: $(OBJECTS)
+	gcc $(CFLAGS) $^ -o $@
 
 clean:
 	rm -f $(TARGETS) $(OBJECTS)
