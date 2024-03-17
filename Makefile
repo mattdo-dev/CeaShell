@@ -1,10 +1,12 @@
 TARGETS=thsh
 
-# Main build directories
+# Build directories
 SRC=$(wildcard *.c) \
     $(wildcard src/*.c) \
     $(wildcard src/builtins/*.c) \
     $(wildcard src/utils/*.c)
+
+# TODO: Integrate test func.
 
 # Replace the .c extension with .o to get the list of object files
 OBJECTS=$(SRC:.c=.o)
