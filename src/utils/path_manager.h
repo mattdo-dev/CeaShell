@@ -5,7 +5,7 @@
 #ifndef PATH_MANAGER_H
 #define PATH_MANAGER_H
 
-#define MAX_INPUT 256
+#define MAX_INPUT_LEN 256
 
 /* This function needs to be called once at start-up to initialize
  * the current path.  This should populate cur_path.

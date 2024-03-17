@@ -1,6 +1,7 @@
 #ifndef THSH_H
 #define THSH_H
 
+#include "src/utils/constants.h"
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -9,23 +10,10 @@
 #include <assert.h>
 #include <dirent.h>
 
-// Assume a pipeline will never be longer than 31 stages (+NULL)
-#define MAX_PIPELINE   32
-
-// Assume any individual command will not have more than 15 arguments (+NULL)
-#define MAX_ARGS       16
-
 // Disallow exec*p* variants, lest we spoil the fun
 #pragma GCC poison execlp execvp execvpe
 
 // Helper functions
-
-// In parse.c:
-int read_one_line(int input_fd, char *buf, size_t size);
-
-int parse_line(char *inbuf, size_t length, char *commands[MAX_PIPELINE][MAX_ARGS],
-               char **infile, char **outfile,
-               char *scratch, size_t scratch_len);
 
 // In jobs.c:
 int init_path(void);

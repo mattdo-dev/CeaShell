@@ -4,8 +4,8 @@
 #include <errno.h>
 #include <string.h>
 
-static char old_path[MAX_INPUT];
-static char cur_path[MAX_INPUT];
+static char old_path[MAX_INPUT_LEN];
+static char cur_path[MAX_INPUT_LEN];
 
 int init_cwd(void) {
     if (getcwd(cur_path, sizeof(cur_path)) == NULL) {
@@ -27,15 +27,15 @@ char *get_old_path(void) {
 
 void set_current_path(const char *path) {
     if (path != NULL) {
-        strncpy(cur_path, path, MAX_INPUT);
-        cur_path[MAX_INPUT - 1] = '\0';  // Ensure null termination
+        strncpy(cur_path, path, MAX_INPUT_LEN);
+        cur_path[MAX_INPUT_LEN - 1] = '\0';  // Ensure null termination
     }
 }
 
 void set_old_path(const char *path) {
     if (path != NULL) {
-        strncpy(old_path, path, MAX_INPUT);
-        old_path[MAX_INPUT - 1] = '\0';  // Ensure null termination
+        strncpy(old_path, path, MAX_INPUT_LEN);
+        old_path[MAX_INPUT_LEN - 1] = '\0';  // Ensure null termination
     }
 }
 
