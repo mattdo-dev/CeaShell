@@ -5,6 +5,7 @@
  */
 
 #include "thsh.h"
+#include "src/jobs.h"
 #include "src/parse.h"
 #include "src/utils/trie.h"
 #include "src/utils/path_manager.h"
