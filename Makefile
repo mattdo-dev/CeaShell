@@ -1,15 +1,12 @@
 TARGETS=thsh
+BUILD_DIR=build
 
 # Build directories
-SRC=$(wildcard *.c) \
-    $(wildcard src/*.c) \
-    $(wildcard src/builtins/*.c) \
-    $(wildcard src/utils/*.c)
+SRC_DIRS= . src src/builtins src/utils
+SRC=$(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 
-# TODO: Integrate test func.
-
-# Replace the .c extension with .o to get the list of object files
-OBJECTS=$(SRC:.c=.o)
+# Object files will be located in the build directory
+OBJECTS=$(SRC:%.c=$(BUILD_DIR)/%.o)
 
 CFLAGS= -Wall -Werror -g
 
@@ -17,12 +14,14 @@ CFLAGS= -Wall -Werror -g
 
 all: $(TARGETS)
 
-# Rule to compile .c to .o; handles dependencies automatically
-%.o: %.c
+# Create the build directory if it doesn't exist and compile the .c to .o
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(@D)
 	gcc $(CFLAGS) -c $< -o $@
 
 thsh: $(OBJECTS)
 	gcc $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(TARGETS) $(OBJECTS)
+	rm -f $(TARGETS)
+	rm -rf $(BUILD_DIR)

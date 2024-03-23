@@ -1,13 +1,27 @@
+# Ignore editor backups and temporary files
 *~
-thsh
 .__afs*
+
+# Ignore binary and test files
+thsh
 parser_tester
 test_env
-/lab*
-/sol*
-/prep*
+
+# Ignore result files
 results
-*.o\
+
+# Ignore object files
+*.o
+
+# Ignore IDE-specific directories
 .idea/
+
+# Ignore challenge text file
 challenge.txt
 
+# Ignore build directories
+/build/
+/bin/
+/obj/
+/debug/
+/release/
