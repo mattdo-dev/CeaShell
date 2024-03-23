@@ -4,21 +4,27 @@
  * executing commands.
  */
 
-#include "thsh.h"
 #include "src/jobs.h"
 #include "src/parse.h"
+#include "src/utils/constants.h"
 #include "src/utils/trie.h"
 #include "src/utils/path_manager.h"
 #include "src/builtin.h"
 #include "src/history.h"
 #include "src/raw_mode.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include <dirent.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <ctype.h>
+
 
 int main(int argc, char **argv, char **envp) {
     // flag that the program should end
