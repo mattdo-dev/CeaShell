@@ -376,10 +376,7 @@ int main(int argc, char **argv, char **envp) {
                         "Failed to format the output (%d).  This shouldn't happen...\n",
                         rv);
         }
-
     }
-
-    if (input_fd) close(input_fd);
 
     save_history();
     // Only return a non-zero value from main() if the shell itself
