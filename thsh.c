@@ -15,9 +15,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
 #include <stdbool.h>
-#include <dirent.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <sys/stat.h>
